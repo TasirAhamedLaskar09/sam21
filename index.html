@@ -62,6 +62,19 @@ body {
   border-radius: 20px;
 }
 
+/* Prevent icons/images from being covered by text selection */
+img, svg, .icon, #music-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Softer selection color so icons remain visible when user selects page text */
+::selection {
+  background: rgba(232,201,109,0.12);
+  color: inherit;
+}
+
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -72,6 +85,13 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
+}
+
+/* Fix: emojis inside gradient-text headings must opt out of the transparent fill */
+.section-title .emoji {
+  -webkit-text-fill-color: initial;
+  background: none;
+  display: inline-block;
 }
 
 .section-subtitle {
@@ -751,7 +771,7 @@ body {
 
   <!-- STORY / TIMELINE SECTION -->
   <section id="story">
-    <h2 class="section-title">Our Story 💫</h2>
+    <h2 class="section-title">Our Story <span class="emoji">💫</span></h2>
     <p class="section-subtitle">Moments written in the stars</p>
 
     <div class="timeline">
@@ -807,7 +827,7 @@ body {
 
   <!-- BIRTHDAY LETTER SECTION -->
   <section id="letter-section">
-    <h2 class="section-title">A Letter for You 💌</h2>
+    <h2 class="section-title">A Letter for You <span class="emoji">💌</span></h2>
     <p class="section-subtitle">Written from the heart</p>
 
     <div class="letter-envelope">
@@ -844,7 +864,7 @@ body {
 
   <!-- SURPRISE SECTION -->
   <section id="surprise-section">
-    <h2 class="section-title">There's More... 🎁</h2>
+    <h2 class="section-title">There's More... <span class="emoji">🎁</span></h2>
     <p class="section-subtitle">A little surprise awaits</p>
 
     <button class="surprise-btn" id="surprise-btn">
@@ -861,7 +881,7 @@ body {
 
   <!-- PHOTO GALLERY SECTION -->
   <section id="gallery-section">
-    <h2 class="section-title">Our Gallery 📸</h2>
+    <h2 class="section-title">Our Gallery <span class="emoji">📸</span></h2>
     <p class="section-subtitle">Moments frozen in time</p>
 
     <div class="photo-grid" id="photo-grid">
